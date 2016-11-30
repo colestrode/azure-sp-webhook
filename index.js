@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
+  logger.info('GET request')
   res.status(200).send({it: 'works!'})
 })
 
