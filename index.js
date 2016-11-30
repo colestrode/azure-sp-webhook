@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 
 app.post('/consumer', (req, res) => {
   logger.info('received payload', req.body)
+  logger.info('headers', req.headers)
   res.status(200).send()
 })
 
