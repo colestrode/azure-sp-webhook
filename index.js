@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 const bearerOptions = {
   identityMetadata: `https://login.microsoftonline.com/${process.env.TENANT_GUID}/v2.0/.well-known/openid-configuration`,
-  clientID: process.env.CLIENT_ID,
+  clientID: process.env.WEBSITE_AUTH_MSA_CLIENT_ID,
   passReqToCallback: false,
   loggingLevel: process.env.LOG_LEVEL || 'error',
 
