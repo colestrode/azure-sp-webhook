@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 const bearerOptions = {
   identityMetadata: `https://login.microsoftonline.com/${process.env.TENANT_GUID}/v2.0/.well-known/openid-configuration`,
-  clientID: process.env.WEBSITE_AUTH_MSA_CLIENT_ID,
+  clientID: process.env.CLIENT_ID,
   passReqToCallback: false,
   loggingLevel: process.env.LOG_LEVEL || 'error',
 
@@ -40,7 +40,7 @@ const bearerStrategy = new passportAd.BearerStrategy(bearerOptions, (token, done
 
 passport.use(bearerStrategy)
 
-app.post('/bearer'/*, passport.authenticate('oauth-bearer', { session: false })*/, (req, res) => {
+app.post('/bearer', passport.authenticate('oauth-bearer', { session: false }), (req, res) => {
   logger.info('received payload', req.body)
   logger.info('headers', req.headers)
   res.status(200).send()
