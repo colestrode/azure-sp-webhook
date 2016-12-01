@@ -40,7 +40,7 @@ const bearerStrategy = new passportAd.BearerStrategy(bearerOptions, (token, done
 
 passport.use(bearerStrategy)
 
-app.post('/bearer'/*, passport.authenticate('oauth-bearer'*/, { session: false }), (req, res) => {
+app.post('/bearer'/*, passport.authenticate('oauth-bearer', { session: false })*/, (req, res) => {
   logger.info('received payload', req.body)
   logger.info('headers', req.headers)
   res.status(200).send()
